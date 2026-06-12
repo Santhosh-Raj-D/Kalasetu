@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders — KalaSetu Artisan</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <style>
+    .dashboard-nav { background: var(--mud); padding: 0.75rem 0; }
+    .dashboard-nav ul { list-style: none; display: flex; gap: 0.25rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; flex-wrap: wrap; }
+    .dashboard-nav a { color: rgba(241,232,218,0.8); font-size: 0.875rem; padding: 0.35rem 0.75rem; border-radius: var(--radius); text-decoration: none; display: block; }
+    .dashboard-nav a:hover, .dashboard-nav a.active { background: rgba(255,255,255,0.15); color: var(--bone); }
+    .order-items-panel { background: var(--bone); border-radius: var(--radius); padding: 0.75rem 1rem; margin-top: 0.5rem; font-size: 0.85rem; display: none; }
+    .order-items-panel.open { display: block; }
+  </style>
+</head>
+<body>
+  <header class="site-header"></header>
+  <nav class="dashboard-nav">
+    <ul>
+      <li><a href="/artisan/dashboard.html">Dashboard</a></li>
+      <li><a href="/artisan/products.html">Products</a></li>
+      <li><a href="/artisan/orders.html" class="active">Orders</a></li>
+      <li><a href="/artisan/inquiries.html">B2B Inquiries</a></li>
+      <li><a href="/messages.html">Messages</a></li>
+      <li><a href="/artisan/profile.html">Heritage Profile</a></li>
+    </ul>
+  </nav>
+  <div class="page-header">
+    <div class="container">
+      <h1>Orders</h1>
+    </div>
+  </div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div style="margin-bottom:1.5rem;display:flex;gap:0.75rem;flex-wrap:wrap">
+          <select id="status-filter" style="padding:0.5rem 0.75rem;border:1.5px solid #c4b99a;border-radius:var(--radius);font-family:'Karla',sans-serif">
+            <option value="">All Statuses</option>
+            <option value="PLACED">Placed</option>
+            <option value="CONFIRMED">Confirmed</option>
+            <option value="SHIPPED">Shipped</option>
+            <option value="DELIVERED">Delivered</option>
+          </select>
+          <span id="order-count" style="font-size:0.85rem;color:var(--mud);align-self:center"></span>
+        </div>
+        <div id="orders-content"><div class="skeleton" style="height:300px"></div></div>
+        <div id="pagination"></div>
+      </div>
+    </section>
+  </main>
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/artisan-orders.js"></script>
+</body>
+</html>

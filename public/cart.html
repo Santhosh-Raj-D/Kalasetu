@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart — KalaSetu</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <style>
+    .cart-layout { display: grid; grid-template-columns: 1fr 340px; gap: 2rem; align-items: start; }
+    .cart-item-img { width: 72px; height: 72px; border-radius: var(--radius); object-fit: cover; background: var(--bone-dark); }
+    .qty-controls { display: flex; align-items: center; gap: 0.5rem; }
+    .qty-btn { width: 28px; height: 28px; border: 1.5px solid var(--mud); background: white; border-radius: var(--radius); cursor: pointer; font-size: 1rem; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+    .qty-btn:hover { background: var(--bone-dark); }
+    .qty-value { min-width: 32px; text-align: center; font-family: 'IBM Plex Mono', monospace; font-weight: 600; }
+    .summary-card { background: white; border: 2px solid var(--bone-dark); border-radius: var(--radius); padding: 1.5rem; position: sticky; top: 80px; }
+    .summary-row { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--bone-dark); font-size: 0.9rem; }
+    .summary-row.total { font-weight: 700; font-size: 1.05rem; border-bottom: none; margin-top: 0.25rem; }
+    .summary-row .mono { font-family: 'IBM Plex Mono', monospace; }
+    @media (max-width: 768px) { .cart-layout { grid-template-columns: 1fr; } .summary-card { position: static; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"></header>
+  <div class="page-header">
+    <div class="container">
+      <p class="breadcrumb"><a href="/">Home</a> › Cart</p>
+      <h1>Your Cart</h1>
+    </div>
+  </div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div id="cart-content">
+          <div class="skeleton" style="height:300px"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/cart.js"></script>
+</body>
+</html>

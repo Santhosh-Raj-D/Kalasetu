@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register — KalaSetu</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <style>
+    .auth-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--indigo); padding: 2rem; }
+    .auth-card { background: white; border-radius: 4px; padding: 2.5rem; width: 100%; max-width: 460px; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .auth-logo { font-family: 'Fraunces', serif; font-size: 1.5rem; color: var(--bronze); text-align: center; margin-bottom: 0.25rem; }
+    .auth-subtitle { text-align: center; color: var(--mud); font-size: 0.875rem; margin-bottom: 2rem; }
+    .auth-footer { text-align: center; margin-top: 1.5rem; font-size: 0.875rem; color: var(--mud); }
+    .role-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .role-card { border: 2px solid var(--bone-dark); border-radius: 4px; padding: 0.875rem; cursor: pointer; text-align: center; transition: border-color 0.15s; }
+    .role-card.selected { border-color: var(--bronze); background: rgba(176,120,43,0.06); }
+    .role-card h4 { font-size: 0.875rem; margin-bottom: 0.2rem; }
+    .role-card p { font-size: 0.72rem; color: var(--mud); line-height: 1.4; }
+    #business-fields { display: none; }
+    #artisan-note { display: none; }
+  </style>
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-card">
+      <p class="auth-logo">KalaSetu</p>
+      <p class="auth-subtitle">Create your account</p>
+
+      <div id="error-msg" class="alert alert-error" style="display:none"></div>
+
+      <form id="register-form">
+        <div class="form-group">
+          <label class="form-label">I want to…</label>
+          <div class="role-cards">
+            <div class="role-card selected" data-role="CUSTOMER">
+              <h4>🛍️ Shop</h4>
+              <p>Buy authentic tribal crafts</p>
+            </div>
+            <div class="role-card" data-role="ARTISAN">
+              <h4>🏺 Sell</h4>
+              <p>List and sell my crafts</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="artisan-note" class="alert alert-info" style="margin-bottom:1.25rem">
+          Artisan accounts require admin activation before you can list products. You'll be notified once active.
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="name">Full Name <span class="req">*</span></label>
+          <input type="text" id="name" class="form-control" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email <span class="req">*</span></label>
+          <input type="email" id="email" class="form-control" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="phone">Phone</label>
+          <input type="tel" id="phone" class="form-control" autocomplete="tel">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="password">Password <span class="req">*</span></label>
+          <input type="password" id="password" class="form-control" minlength="6" required autocomplete="new-password">
+          <p class="form-hint">At least 6 characters</p>
+        </div>
+
+        <div class="form-group" id="business-toggle">
+          <label style="display:flex;gap:0.5rem;cursor:pointer">
+            <input type="checkbox" id="is-business">
+            <span class="form-label" style="margin:0">I'm registering as a business buyer</span>
+          </label>
+        </div>
+        <div id="business-fields">
+          <div class="form-group">
+            <label class="form-label" for="business-name">Business Name</label>
+            <input type="text" id="business-name" class="form-control" autocomplete="organization">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%" id="submit-btn">Create Account</button>
+      </form>
+
+      <p class="auth-footer">Already have an account? <a href="/login.html">Sign In</a></p>
+    </div>
+  </div>
+  <script type="module" src="/js/pages/register.js"></script>
+</body>
+</html>

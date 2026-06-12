@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support Tickets — KalaSetu</title>
+  <link rel="stylesheet" href="/css/shared.css">
+</head>
+<body>
+  <header class="site-header"></header>
+  <div class="page-header">
+    <div class="container">
+      <p class="breadcrumb"><a href="/">Home</a> › Support Tickets</p>
+      <h1>Support Tickets</h1>
+    </div>
+  </div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem">
+          <p style="color:var(--mud)" id="tickets-count"></p>
+          <button class="btn btn-primary" id="new-ticket-btn">+ New Ticket</button>
+        </div>
+        <div id="tickets-content">
+          <div class="skeleton" style="height:250px"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- New Ticket Modal -->
+  <div class="modal-overlay hidden" id="ticket-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>New Support Ticket</h3>
+        <button class="modal-close" id="modal-close-btn">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="ticket-form">
+          <div class="form-group">
+            <label class="form-label">Subject <span class="req">*</span></label>
+            <input class="form-control" name="subject" required placeholder="Brief description of your issue">
+            <p class="form-error" id="err-subject"></p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Description <span class="req">*</span></label>
+            <textarea class="form-control" name="description" required placeholder="Please describe your issue in detail…"></textarea>
+            <p class="form-error" id="err-description"></p>
+          </div>
+          <div id="ticket-form-error" class="alert alert-error" style="display:none"></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancel-modal-btn">Cancel</button>
+        <button class="btn btn-primary" id="submit-ticket-btn">Submit Ticket</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/tickets.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Form — KalaSetu Artisan</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <style>
+    .dashboard-nav { background: var(--mud); padding: 0.75rem 0; }
+    .dashboard-nav ul { list-style: none; display: flex; gap: 0.25rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; flex-wrap: wrap; }
+    .dashboard-nav a { color: rgba(241,232,218,0.8); font-size: 0.875rem; padding: 0.35rem 0.75rem; border-radius: var(--radius); text-decoration: none; display: block; }
+    .dashboard-nav a:hover, .dashboard-nav a.active { background: rgba(255,255,255,0.15); color: var(--bone); }
+    .form-layout { display: grid; grid-template-columns: 1fr 320px; gap: 2rem; align-items: start; }
+    .form-card { background: white; border: 2px solid var(--bone-dark); border-radius: var(--radius); padding: 1.75rem; margin-bottom: 1.5rem; }
+    .form-card h2 { font-size: 1rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--bone-dark); }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .image-previews { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; margin-top: 0.75rem; }
+    .img-preview-slot {
+      aspect-ratio: 1;
+      border: 2px dashed var(--bone-dark);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      background: var(--bone);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--mud);
+    }
+    .img-preview-slot img { width: 100%; height: 100%; object-fit: cover; }
+    .img-preview-slot .remove-img {
+      position: absolute;
+      top: 2px; right: 2px;
+      background: rgba(192,57,43,0.8);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 20px; height: 20px;
+      font-size: 0.7rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+    @media (max-width: 768px) { .form-layout { grid-template-columns: 1fr; } .form-row-2 { grid-template-columns: 1fr; } .image-previews { grid-template-columns: repeat(3,1fr); } }
+  </style>
+</head>
+<body>
+  <header class="site-header"></header>
+  <nav class="dashboard-nav">
+    <ul>
+      <li><a href="/artisan/dashboard.html">Dashboard</a></li>
+      <li><a href="/artisan/products.html" class="active">Products</a></li>
+      <li><a href="/artisan/orders.html">Orders</a></li>
+      <li><a href="/artisan/inquiries.html">B2B Inquiries</a></li>
+      <li><a href="/messages.html">Messages</a></li>
+      <li><a href="/artisan/profile.html">Heritage Profile</a></li>
+    </ul>
+  </nav>
+  <div class="page-header">
+    <div class="container">
+      <p class="breadcrumb"><a href="/artisan/products.html">Products</a> › <span id="form-mode-label">Add Product</span></p>
+      <h1 id="form-title">Add New Product</h1>
+    </div>
+  </div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <form id="product-form" enctype="multipart/form-data">
+          <div class="form-layout">
+            <div>
+              <div class="form-card">
+                <h2>Basic Information</h2>
+                <div class="form-group">
+                  <label class="form-label">Product Name <span class="req">*</span></label>
+                  <input class="form-control" name="name" required placeholder="e.g. Dhokra Horse Figurine">
+                  <p class="form-error" id="err-name"></p>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Category <span class="req">*</span></label>
+                  <select class="form-control" name="category_id" required id="category-select">
+                    <option value="">Loading categories…</option>
+                  </select>
+                  <p class="form-error" id="err-category_id"></p>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Description <span class="req">*</span></label>
+                  <textarea class="form-control" name="description" required placeholder="Describe the product, its making, significance…" style="min-height:140px"></textarea>
+                  <p class="form-error" id="err-description"></p>
+                </div>
+              </div>
+
+              <div class="form-card">
+                <h2>Craft Details</h2>
+                <div class="form-group">
+                  <label class="form-label">Craft Technique</label>
+                  <input class="form-control" name="craft_technique" placeholder="e.g. Lost-wax casting (cire perdue)">
+                  <p class="form-hint">Describe the traditional technique used to make this product</p>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Materials</label>
+                  <input class="form-control" name="materials" placeholder="e.g. Bell metal, beeswax, clay mould">
+                  <p class="form-hint">List the materials used</p>
+                </div>
+              </div>
+
+              <div class="form-card">
+                <h2>Pricing & Stock</h2>
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label class="form-label">Price (₹) <span class="req">*</span></label>
+                    <input class="form-control" name="price" type="number" min="1" step="0.01" required placeholder="0">
+                    <p class="form-error" id="err-price"></p>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Stock Quantity <span class="req">*</span></label>
+                    <input class="form-control" name="stock" type="number" min="0" required placeholder="0">
+                    <p class="form-error" id="err-stock"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-card">
+                <h2>Product Images (up to 5)</h2>
+                <p class="form-hint" style="margin-bottom:0.75rem">Click a slot to upload an image. The first image will be the primary image.</p>
+                <div class="image-previews" id="image-previews">
+                  <div class="img-preview-slot" data-slot="0">+</div>
+                  <div class="img-preview-slot" data-slot="1">+</div>
+                  <div class="img-preview-slot" data-slot="2">+</div>
+                  <div class="img-preview-slot" data-slot="3">+</div>
+                  <div class="img-preview-slot" data-slot="4">+</div>
+                </div>
+                <input type="file" id="img-file-input" accept="image/*" style="display:none">
+              </div>
+
+              <div id="form-global-error" class="alert alert-error" style="display:none"></div>
+              <div style="display:flex;gap:1rem;flex-wrap:wrap">
+                <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">Save Product</button>
+                <a href="/artisan/products.html" class="btn btn-secondary btn-lg">Cancel</a>
+              </div>
+            </div>
+
+            <aside style="position:sticky;top:80px">
+              <div style="background:white;border:2px solid var(--bone-dark);border-radius:var(--radius);padding:1.25rem">
+                <h3 style="font-size:0.9rem;margin-bottom:0.75rem;color:var(--mud)">TIPS</h3>
+                <ul style="font-size:0.8rem;color:var(--ink-light);list-style:disc;padding-left:1rem;line-height:2">
+                  <li>Use high-quality, well-lit photos</li>
+                  <li>Show multiple angles of the product</li>
+                  <li>Describe the craft tradition accurately — consultants will verify this</li>
+                  <li>Set a fair price that reflects the artisan's time</li>
+                  <li>Save as Draft first, then submit for review when ready</li>
+                </ul>
+              </div>
+              <div style="background:var(--indigo);border-radius:var(--radius);padding:1.25rem;margin-top:1rem;color:var(--bone)">
+                <h3 style="font-size:0.875rem;margin-bottom:0.5rem">Review Process</h3>
+                <p style="font-size:0.78rem;opacity:0.85;line-height:1.6">After submission, a cultural consultant will review your product for authenticity. This typically takes 2-3 business days.</p>
+              </div>
+            </aside>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/artisan-product-form.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review Product — KalaSetu Consultant</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <style>
+    .consultant-nav { background: var(--indigo); padding: 0.75rem 0; }
+    .consultant-nav ul { list-style: none; display: flex; gap: 0.25rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; flex-wrap: wrap; }
+    .consultant-nav a { color: rgba(241,232,218,0.8); font-size: 0.875rem; padding: 0.35rem 0.75rem; border-radius: var(--radius); text-decoration: none; display: block; }
+    .consultant-nav a:hover, .consultant-nav a.active { background: rgba(255,255,255,0.15); color: var(--bone); }
+    .review-layout { display: grid; grid-template-columns: 1fr 400px; gap: 2rem; align-items: start; }
+    .product-detail-card { background: white; border: 2px solid var(--bone-dark); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
+    .product-detail-card h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--mud); margin-bottom: 0.75rem; }
+    .detail-field { margin-bottom: 0.75rem; font-size: 0.9rem; }
+    .detail-field .label { font-weight: 600; color: var(--ink); }
+    .detail-field .value { color: var(--ink-light); margin-top: 0.15rem; line-height: 1.6; }
+    .image-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 0.5rem; margin-top: 0.75rem; }
+    .image-gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); cursor: pointer; }
+    .decision-card { background: white; border: 2px solid var(--bone-dark); border-radius: var(--radius); padding: 1.5rem; position: sticky; top: 80px; }
+    .decision-option { padding: 1rem; border: 2px solid var(--bone-dark); border-radius: var(--radius); cursor: pointer; margin-bottom: 0.75rem; transition: border-color 0.15s; }
+    .decision-option:has(input:checked) { border-color: var(--bronze); background: rgba(176,120,43,0.04); }
+    .decision-option.approve:has(input:checked) { border-color: var(--leaf); background: rgba(92,124,76,0.05); }
+    .decision-option.reject:has(input:checked) { border-color: #c0392b; background: rgba(192,57,43,0.04); }
+    @media (max-width: 768px) { .review-layout { grid-template-columns: 1fr; } .decision-card { position: static; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"></header>
+  <nav class="consultant-nav">
+    <ul>
+      <li><a href="/consultant/queue.html">Review Queue</a></li>
+      <li><a href="/consultant/history.html">Review History</a></li>
+    </ul>
+  </nav>
+  <div class="page-header">
+    <div class="container">
+      <p class="breadcrumb"><a href="/consultant/queue.html">Queue</a> › Review</p>
+      <h1 id="review-title">Reviewing Product</h1>
+    </div>
+  </div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div id="review-content"><div class="skeleton" style="height:400px"></div></div>
+      </div>
+    </section>
+  </main>
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/consultant-review.js"></script>
+</body>
+</html>

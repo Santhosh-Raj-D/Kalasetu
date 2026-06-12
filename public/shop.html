@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — KalaSetu</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <link rel="stylesheet" href="/css/shop.css">
+</head>
+<body>
+  <header class="site-header"></header>
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <p class="breadcrumb"><a href="/">Home</a> / Shop</p>
+        <h1>All Crafts</h1>
+      </div>
+    </div>
+    <div class="warli-frieze" aria-hidden="true"></div>
+    <div class="container shop-layout">
+      <aside class="filter-sidebar" id="filter-sidebar">
+        <button class="filter-close" id="filter-close" aria-label="Close filters">✕</button>
+        <h3>Filter</h3>
+        <div class="filter-section">
+          <h4>Category</h4>
+          <div id="category-filters"></div>
+        </div>
+        <div class="filter-section">
+          <h4>Price Range</h4>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem">
+            <input type="number" id="min-price" class="form-control" placeholder="Min" min="0">
+            <input type="number" id="max-price" class="form-control" placeholder="Max" min="0">
+          </div>
+        </div>
+        <div class="filter-section">
+          <h4>Sort By</h4>
+          <select id="sort-select" class="form-control">
+            <option value="newest">Newest</option>
+            <option value="price_asc">Price: Low to High</option>
+            <option value="price_desc">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" style="width:100%;margin-top:0.5rem" id="apply-filters">Apply Filters</button>
+        <button class="btn btn-secondary" style="width:100%;margin-top:0.5rem" id="clear-filters">Clear All</button>
+      </aside>
+
+      <div class="shop-main">
+        <div class="shop-toolbar">
+          <button class="btn btn-secondary btn-sm" id="filter-toggle">⚙ Filters</button>
+          <span id="results-count" style="font-size:0.875rem;color:var(--mud)"></span>
+        </div>
+        <div class="product-grid" id="product-grid">
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+        </div>
+        <div id="pagination"></div>
+      </div>
+    </div>
+  </main>
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/shop.js"></script>
+</body>
+</html>

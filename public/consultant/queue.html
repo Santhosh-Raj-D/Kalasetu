@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review Queue — KalaSetu Consultant</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <style>
+    .consultant-nav { background: var(--indigo); padding: 0.75rem 0; }
+    .consultant-nav ul { list-style: none; display: flex; gap: 0.25rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; flex-wrap: wrap; }
+    .consultant-nav a { color: rgba(241,232,218,0.8); font-size: 0.875rem; padding: 0.35rem 0.75rem; border-radius: var(--radius); text-decoration: none; display: block; }
+    .consultant-nav a:hover, .consultant-nav a.active { background: rgba(255,255,255,0.15); color: var(--bone); }
+  </style>
+</head>
+<body>
+  <header class="site-header"></header>
+  <nav class="consultant-nav">
+    <ul>
+      <li><a href="/consultant/queue.html" class="active">Review Queue</a></li>
+      <li><a href="/consultant/history.html">Review History</a></li>
+    </ul>
+  </nav>
+  <div class="page-header">
+    <div class="container">
+      <h1>Review Queue</h1>
+      <p style="opacity:0.8;margin-top:0.4rem">Products awaiting cultural authenticity review</p>
+    </div>
+  </div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div id="queue-content"><div class="skeleton" style="height:300px"></div></div>
+        <div id="pagination"></div>
+      </div>
+    </section>
+  </main>
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/consultant-queue.js"></script>
+</body>
+</html>

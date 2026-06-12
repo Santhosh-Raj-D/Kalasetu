@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coupons — KalaSetu Admin</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <style>
+    .admin-nav { background: #1a1210; padding: 0.75rem 0; border-bottom: 2px solid var(--bronze); }
+    .admin-nav ul { list-style: none; display: flex; gap: 0.25rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; flex-wrap: wrap; }
+    .admin-nav a { color: rgba(241,232,218,0.8); font-size: 0.875rem; padding: 0.35rem 0.75rem; border-radius: var(--radius); text-decoration: none; display: block; }
+    .admin-nav a:hover, .admin-nav a.active { background: var(--bronze); color: var(--bone); }
+    .coupon-code { font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; font-weight: 600; background: var(--bone); padding: 0.2rem 0.5rem; border-radius: 3px; letter-spacing: 0.06em; }
+  </style>
+</head>
+<body>
+  <header class="site-header"></header>
+  <nav class="admin-nav">
+    <ul>
+      <li><a href="/admin/dashboard.html">Dashboard</a></li>
+      <li><a href="/admin/users.html">Users</a></li>
+      <li><a href="/admin/products.html">Products</a></li>
+      <li><a href="/admin/transactions.html">Transactions</a></li>
+      <li><a href="/admin/coupons.html" class="active">Coupons</a></li>
+      <li><a href="/admin/tickets.html">Support Tickets</a></li>
+      <li><a href="/admin/categories.html">Categories</a></li>
+    </ul>
+  </nav>
+  <div class="page-header">
+    <div class="container">
+      <h1>Coupon Management</h1>
+    </div>
+  </div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem">
+          <span id="coupon-count" style="font-size:0.85rem;color:var(--mud)"></span>
+          <button class="btn btn-primary" id="create-coupon-btn">+ Create Coupon</button>
+        </div>
+        <div id="coupons-content"><div class="skeleton" style="height:250px"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Create Coupon Modal -->
+  <div class="modal-overlay hidden" id="coupon-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="coupon-modal-title">Create Coupon</h3>
+        <button class="modal-close" id="close-coupon-modal">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="coupon-form">
+          <input type="hidden" id="edit-coupon-id">
+          <div class="form-group">
+            <label class="form-label">Code <span class="req">*</span></label>
+            <input class="form-control" id="coupon-code" required placeholder="e.g. WELCOME20" style="text-transform:uppercase">
+            <p class="form-hint">Uppercase letters and numbers only</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Discount Type <span class="req">*</span></label>
+            <select class="form-control" id="coupon-type" required>
+              <option value="">Select type</option>
+              <option value="PERCENTAGE">Percentage (%)</option>
+              <option value="FIXED">Fixed Amount (₹)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Discount Value <span class="req">*</span></label>
+            <input class="form-control" id="coupon-value" type="number" min="1" step="0.01" required placeholder="e.g. 20 for 20% or 200 for ₹200">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Minimum Order Value (₹)</label>
+            <input class="form-control" id="coupon-min-order" type="number" min="0" placeholder="0 = no minimum">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Max Uses</label>
+            <input class="form-control" id="coupon-max-uses" type="number" min="0" placeholder="Leave empty for unlimited">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Expiry Date</label>
+            <input class="form-control" id="coupon-expiry" type="date">
+          </div>
+          <div id="coupon-modal-error" class="alert alert-error" style="display:none"></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancel-coupon-btn">Cancel</button>
+        <button class="btn btn-primary" id="submit-coupon-btn">Create Coupon</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/admin-coupons.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories — Admin — KalaSetu</title>
+  <link rel="stylesheet" href="/css/shared.css">
+</head>
+<body>
+  <header class="site-header"></header>
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <p class="breadcrumb"><a href="/admin/dashboard.html">Dashboard</a> / Categories</p>
+        <h1>Manage Categories</h1>
+      </div>
+    </div>
+    <div class="warli-frieze" aria-hidden="true"></div>
+    <div class="container" style="padding:2rem 1.5rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
+        <h2>All Categories</h2>
+        <button class="btn btn-primary" id="add-btn">+ Add Category</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Name</th><th>Slug</th><th>Description</th><th>Actions</th></tr></thead>
+          <tbody id="categories-tbody"><tr><td colspan="4"><div class="skeleton skeleton-text"></div></td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  <!-- Modal -->
+  <div class="modal-overlay hidden" id="modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modal-title">Add Category</h3>
+        <button class="modal-close" id="modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="edit-id">
+        <div class="form-group">
+          <label class="form-label">Name <span class="req">*</span></label>
+          <input type="text" id="cat-name" class="form-control">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Description</label>
+          <textarea id="cat-desc" class="form-control" rows="2"></textarea>
+        </div>
+        <div id="modal-error" class="alert alert-error" style="display:none"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="modal-cancel">Cancel</button>
+        <button class="btn btn-primary" id="modal-save">Save</button>
+      </div>
+    </div>
+  </div>
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/admin-categories.js"></script>
+</body>
+</html>

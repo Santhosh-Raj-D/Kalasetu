@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B2B Inquiries — KalaSetu Artisan</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <style>
+    .dashboard-nav { background: var(--mud); padding: 0.75rem 0; }
+    .dashboard-nav ul { list-style: none; display: flex; gap: 0.25rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; flex-wrap: wrap; }
+    .dashboard-nav a { color: rgba(241,232,218,0.8); font-size: 0.875rem; padding: 0.35rem 0.75rem; border-radius: var(--radius); text-decoration: none; display: block; }
+    .dashboard-nav a:hover, .dashboard-nav a.active { background: rgba(255,255,255,0.15); color: var(--bone); }
+    .inquiry-card { background: white; border: 2px solid var(--bone-dark); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+    .inquiry-card.open-inquiry { border-left: 4px solid var(--bronze); }
+    .quote-form { background: var(--bone); border-radius: var(--radius); padding: 1.25rem; margin-top: 1rem; display: none; }
+    .quote-form.visible { display: block; }
+    .quote-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header"></header>
+  <nav class="dashboard-nav">
+    <ul>
+      <li><a href="/artisan/dashboard.html">Dashboard</a></li>
+      <li><a href="/artisan/products.html">Products</a></li>
+      <li><a href="/artisan/orders.html">Orders</a></li>
+      <li><a href="/artisan/inquiries.html" class="active">B2B Inquiries</a></li>
+      <li><a href="/messages.html">Messages</a></li>
+      <li><a href="/artisan/profile.html">Heritage Profile</a></li>
+    </ul>
+  </nav>
+  <div class="page-header">
+    <div class="container">
+      <h1>B2B Inquiries</h1>
+      <p style="opacity:0.8;margin-top:0.4rem">Review and quote on bulk order requests from business buyers</p>
+    </div>
+  </div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div id="inquiries-content"><div class="skeleton" style="height:300px"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Quote Modal -->
+  <div class="modal-overlay hidden" id="quote-modal">
+    <div class="modal" style="max-width:560px">
+      <div class="modal-header">
+        <h3>Submit Quote</h3>
+        <button class="modal-close" id="quote-modal-close">×</button>
+      </div>
+      <div class="modal-body">
+        <div id="quote-inquiry-summary" style="background:var(--bone);border-radius:var(--radius);padding:0.875rem;margin-bottom:1rem;font-size:0.875rem"></div>
+        <form id="quote-form">
+          <input type="hidden" id="quote-inquiry-id">
+          <div class="form-group">
+            <label class="form-label">Quoted Unit Price (₹) <span class="req">*</span></label>
+            <input class="form-control" id="quoted-unit-price" type="number" min="1" step="0.01" required>
+            <p class="form-error" id="err-quoted-price"></p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Lead Time (days) <span class="req">*</span></label>
+            <input class="form-control" id="lead-time-days" type="number" min="1" required>
+            <p class="form-error" id="err-lead-time"></p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Notes</label>
+            <textarea class="form-control" id="quote-notes" placeholder="Any special terms, packaging details, minimum order adjustments…"></textarea>
+          </div>
+          <div id="quote-error" class="alert alert-error" style="display:none"></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="quote-cancel-btn">Cancel</button>
+        <button class="btn btn-primary" id="quote-submit-btn">Submit Quote</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/artisan-inquiries.js"></script>
+</body>
+</html>

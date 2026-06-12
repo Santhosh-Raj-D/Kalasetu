@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heritage Profile — KalaSetu Artisan</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <style>
+    .dashboard-nav { background: var(--mud); padding: 0.75rem 0; }
+    .dashboard-nav ul { list-style: none; display: flex; gap: 0.25rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; flex-wrap: wrap; }
+    .dashboard-nav a { color: rgba(241,232,218,0.8); font-size: 0.875rem; padding: 0.35rem 0.75rem; border-radius: var(--radius); text-decoration: none; display: block; }
+    .dashboard-nav a:hover, .dashboard-nav a.active { background: rgba(255,255,255,0.15); color: var(--bone); }
+    .profile-layout { display: grid; grid-template-columns: 1fr 380px; gap: 2rem; align-items: start; }
+    .form-card { background: white; border: 2px solid var(--bone-dark); border-radius: var(--radius); padding: 1.75rem; margin-bottom: 1.5rem; }
+    .form-card h2 { font-size: 1rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--bone-dark); }
+    .img-upload-box {
+      border: 2px dashed var(--bone-dark);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .img-upload-box:hover { border-color: var(--bronze); }
+    .preview-cover {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--indigo), var(--mud));
+      display: block;
+    }
+    .preview-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      background: var(--bone-dark);
+      display: block;
+      margin: -40px auto 0;
+    }
+    .preview-card { background: white; border: 2px solid var(--bone-dark); border-radius: var(--radius); overflow: hidden; position: sticky; top: 80px; }
+    .preview-card-body { padding: 1rem 1.25rem 1.25rem; text-align: center; }
+    @media (max-width: 768px) { .profile-layout { grid-template-columns: 1fr; } .preview-card { position: static; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"></header>
+  <nav class="dashboard-nav">
+    <ul>
+      <li><a href="/artisan/dashboard.html">Dashboard</a></li>
+      <li><a href="/artisan/products.html">Products</a></li>
+      <li><a href="/artisan/orders.html">Orders</a></li>
+      <li><a href="/artisan/inquiries.html">B2B Inquiries</a></li>
+      <li><a href="/messages.html">Messages</a></li>
+      <li><a href="/artisan/profile.html" class="active">Heritage Profile</a></li>
+    </ul>
+  </nav>
+  <div class="page-header">
+    <div class="container">
+      <h1>Heritage Profile</h1>
+      <p style="opacity:0.8;margin-top:0.4rem">This is your public heritage page visible to all buyers</p>
+    </div>
+  </div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <form id="profile-form" enctype="multipart/form-data">
+          <div class="profile-layout">
+            <div>
+              <div class="form-card">
+                <h2>Identity & Tradition</h2>
+                <div class="form-group">
+                  <label class="form-label">Tribe / Community Name <span class="req">*</span></label>
+                  <input class="form-control" name="tribe_name" required placeholder="e.g. Gond, Warli, Dhokra">
+                  <p class="form-error" id="err-tribe_name"></p>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Region / State <span class="req">*</span></label>
+                  <input class="form-control" name="region" required placeholder="e.g. Bastar, Chhattisgarh">
+                  <p class="form-error" id="err-region"></p>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Craft Tradition <span class="req">*</span></label>
+                  <input class="form-control" name="craft_tradition" required placeholder="e.g. Dhokra lost-wax casting">
+                  <p class="form-error" id="err-craft_tradition"></p>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Years of Experience</label>
+                  <input class="form-control" name="years_experience" type="number" min="0" placeholder="e.g. 15">
+                </div>
+              </div>
+              <div class="form-card">
+                <h2>Your Story</h2>
+                <div class="form-group">
+                  <label class="form-label">Story <span class="req">*</span></label>
+                  <textarea class="form-control" name="story" required placeholder="Tell buyers about yourself, your tradition, how you learned your craft, what it means to you…" style="min-height:180px" id="story-input"></textarea>
+                  <p class="form-hint">This appears in full on your heritage page.</p>
+                  <p class="form-error" id="err-story"></p>
+                </div>
+              </div>
+              <div class="form-card">
+                <h2>Images</h2>
+                <div class="form-group">
+                  <label class="form-label">Profile Photo</label>
+                  <div class="img-upload-box" id="profile-upload-box">
+                    <input type="file" id="profile-img-input" accept="image/*" style="display:none">
+                    <p style="color:var(--mud);font-size:0.875rem">Click to upload profile photo</p>
+                    <p style="font-size:0.75rem;color:var(--mud)">Recommended: square image, min 300×300px</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Cover / Banner Image</label>
+                  <div class="img-upload-box" id="cover-upload-box">
+                    <input type="file" id="cover-img-input" accept="image/*" style="display:none">
+                    <p style="color:var(--mud);font-size:0.875rem">Click to upload cover image</p>
+                    <p style="font-size:0.75rem;color:var(--mud)">Recommended: wide landscape, min 1200×400px</p>
+                  </div>
+                </div>
+              </div>
+              <div id="profile-form-error" class="alert alert-error" style="display:none"></div>
+              <button type="submit" class="btn btn-primary btn-lg" id="save-profile-btn">Save Heritage Profile</button>
+            </div>
+
+            <aside>
+              <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--mud);margin-bottom:0.75rem">Live Preview</p>
+              <div class="preview-card">
+                <div id="preview-cover" class="preview-cover" style="background:linear-gradient(135deg,var(--indigo),var(--mud))"></div>
+                <div class="preview-card-body">
+                  <div id="preview-avatar" style="width:80px;height:80px;border-radius:50%;background:var(--bone-dark);border:3px solid white;margin:-40px auto 0.75rem"></div>
+                  <h3 id="preview-name" style="font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:0.25rem">Your Name</h3>
+                  <p id="preview-tribe-region" style="font-size:0.8rem;color:var(--mud);margin-bottom:0.5rem">Tribe · Region</p>
+                  <span id="preview-tradition" style="display:inline-block;background:var(--indigo);color:white;font-size:0.7rem;font-weight:700;padding:0.15rem 0.6rem;border-radius:2px;text-transform:uppercase;letter-spacing:0.06em"></span>
+                  <p id="preview-story" style="font-size:0.8rem;color:var(--mud);margin-top:0.75rem;text-align:left;line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden"></p>
+                </div>
+              </div>
+              <a id="preview-link" href="#" target="_blank" class="btn btn-secondary btn-sm" style="width:100%;justify-content:center;margin-top:0.75rem">View Public Page →</a>
+            </aside>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/artisan-profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artisan Dashboard — KalaSetu</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <style>
+    .dashboard-nav { background: var(--mud); padding: 0.75rem 0; }
+    .dashboard-nav ul { list-style: none; display: flex; gap: 0.25rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; flex-wrap: wrap; }
+    .dashboard-nav a { color: rgba(241,232,218,0.8); font-size: 0.875rem; padding: 0.35rem 0.75rem; border-radius: var(--radius); text-decoration: none; display: block; }
+    .dashboard-nav a:hover, .dashboard-nav a.active { background: rgba(255,255,255,0.15); color: var(--bone); }
+    .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; }
+    .chart-card { background: white; border: 2px solid var(--bone-dark); border-radius: var(--radius); padding: 1.5rem; }
+    .chart-card h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--mud); margin-bottom: 1rem; }
+    @media (max-width: 768px) { .chart-grid { grid-template-columns: 1fr; } }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="site-header"></header>
+  <nav class="dashboard-nav">
+    <ul>
+      <li><a href="/artisan/dashboard.html" class="active">Dashboard</a></li>
+      <li><a href="/artisan/products.html">Products</a></li>
+      <li><a href="/artisan/orders.html">Orders</a></li>
+      <li><a href="/artisan/inquiries.html">B2B Inquiries</a></li>
+      <li><a href="/messages.html">Messages</a></li>
+      <li><a href="/artisan/profile.html">Heritage Profile</a></li>
+    </ul>
+  </nav>
+  <div class="page-header">
+    <div class="container">
+      <h1 id="welcome-title">Artisan Dashboard</h1>
+    </div>
+  </div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="stat-cards" id="stat-cards">
+          <div class="skeleton" style="height:90px"></div>
+          <div class="skeleton" style="height:90px"></div>
+          <div class="skeleton" style="height:90px"></div>
+          <div class="skeleton" style="height:90px"></div>
+        </div>
+        <div class="chart-grid">
+          <div class="chart-card">
+            <h3>Revenue Over Time</h3>
+            <canvas id="revenue-chart" height="200"></canvas>
+          </div>
+          <div class="chart-card">
+            <h3>Top Products</h3>
+            <canvas id="products-chart" height="200"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/artisan-dashboard.js"></script>
+</body>
+</html>

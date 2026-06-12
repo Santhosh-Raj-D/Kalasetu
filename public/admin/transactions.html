@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transactions — KalaSetu Admin</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <style>
+    .admin-nav { background: #1a1210; padding: 0.75rem 0; border-bottom: 2px solid var(--bronze); }
+    .admin-nav ul { list-style: none; display: flex; gap: 0.25rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; flex-wrap: wrap; }
+    .admin-nav a { color: rgba(241,232,218,0.8); font-size: 0.875rem; padding: 0.35rem 0.75rem; border-radius: var(--radius); text-decoration: none; display: block; }
+    .admin-nav a:hover, .admin-nav a.active { background: var(--bronze); color: var(--bone); }
+    .chip-success { background: #d1fae5; color: #065f46; }
+    .chip-failed { background: #fee2e2; color: #991b1b; }
+    .chip-pending { background: #fef3c7; color: #92400e; }
+    .chip-refunded { background: #e0e7ff; color: #3730a3; }
+  </style>
+</head>
+<body>
+  <header class="site-header"></header>
+  <nav class="admin-nav">
+    <ul>
+      <li><a href="/admin/dashboard.html">Dashboard</a></li>
+      <li><a href="/admin/users.html">Users</a></li>
+      <li><a href="/admin/products.html">Products</a></li>
+      <li><a href="/admin/transactions.html" class="active">Transactions</a></li>
+      <li><a href="/admin/coupons.html">Coupons</a></li>
+      <li><a href="/admin/tickets.html">Support Tickets</a></li>
+      <li><a href="/admin/categories.html">Categories</a></li>
+    </ul>
+  </nav>
+  <div class="page-header">
+    <div class="container">
+      <h1>Transactions</h1>
+    </div>
+  </div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:1.5rem">
+          <input type="text" id="search-txn" placeholder="Search order # or customer…" style="padding:0.5rem 0.75rem;border:1.5px solid #c4b99a;border-radius:var(--radius);font-family:'Karla',sans-serif;flex:1;min-width:200px">
+          <select id="filter-method" style="padding:0.5rem 0.75rem;border:1.5px solid #c4b99a;border-radius:var(--radius);font-family:'Karla',sans-serif">
+            <option value="">All Methods</option>
+            <option value="MOCK_CARD">Card</option>
+            <option value="MOCK_UPI">UPI</option>
+            <option value="COD">COD</option>
+          </select>
+          <select id="filter-status" style="padding:0.5rem 0.75rem;border:1.5px solid #c4b99a;border-radius:var(--radius);font-family:'Karla',sans-serif">
+            <option value="">All Statuses</option>
+            <option value="SUCCESS">Success</option>
+            <option value="FAILED">Failed</option>
+            <option value="PENDING">Pending</option>
+          </select>
+          <span id="txn-count" style="align-self:center;font-size:0.85rem;color:var(--mud)"></span>
+        </div>
+        <div id="transactions-content"><div class="skeleton" style="height:300px"></div></div>
+        <div id="pagination"></div>
+      </div>
+    </section>
+  </main>
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/admin-transactions.js"></script>
+</body>
+</html>

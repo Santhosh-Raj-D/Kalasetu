@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment — KalaSetu</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <style>
+    .payment-layout { display: grid; grid-template-columns: 1fr 340px; gap: 2rem; align-items: start; }
+    .payment-card { background: white; border: 2px solid var(--bone-dark); border-radius: var(--radius); padding: 1.75rem; margin-bottom: 1.5rem; }
+    .payment-card h2 { font-size: 1.1rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--bone-dark); }
+    .method-options { display: flex; flex-direction: column; gap: 0.75rem; }
+    .method-option { display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 1rem; border: 1.5px solid var(--bone-dark); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s; }
+    .method-option:has(input:checked) { border-color: var(--bronze); background: rgba(176,120,43,0.04); }
+    .method-option input[type=radio] { accent-color: var(--bronze); }
+    .method-label { font-weight: 600; }
+    .method-sub { font-size: 0.8rem; color: var(--mud); }
+    .card-fields { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--bone-dark); }
+    .mock-warning { background: #fef3c7; border: 1px solid #fcd34d; border-radius: var(--radius); padding: 0.75rem 1rem; font-size: 0.85rem; color: #92400e; margin-top: 1rem; }
+    .simulate-fail-row { display: flex; align-items: flex-start; gap: 0.5rem; margin-top: 1rem; }
+    .simulate-fail-row input { accent-color: #c0392b; margin-top: 2px; }
+    .order-mini { background: white; border: 2px solid var(--bone-dark); border-radius: var(--radius); padding: 1.5rem; position: sticky; top: 80px; }
+    .order-mini-row { display: flex; justify-content: space-between; padding: 0.4rem 0; font-size: 0.9rem; }
+    .order-mini-row.total { font-weight: 700; border-top: 1px solid var(--bone-dark); margin-top: 0.5rem; padding-top: 0.75rem; }
+    @media (max-width: 768px) { .payment-layout { grid-template-columns: 1fr; } .order-mini { position: static; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"></header>
+  <div class="page-header">
+    <div class="container">
+      <p class="breadcrumb"><a href="/checkout.html">Checkout</a> › Payment</p>
+      <h1>Payment</h1>
+    </div>
+  </div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div id="payment-content">
+          <div class="skeleton" style="height:400px"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/payment.js"></script>
+</body>
+</html>

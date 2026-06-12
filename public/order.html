@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Detail — KalaSetu</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <style>
+    .order-layout { display: grid; grid-template-columns: 1fr 300px; gap: 2rem; align-items: start; }
+    .order-section { background: white; border: 2px solid var(--bone-dark); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
+    .order-section h3 { font-family: 'Fraunces', serif; font-size: 1rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--bone-dark); }
+    .info-row { display: flex; gap: 0.5rem; justify-content: space-between; font-size: 0.9rem; padding: 0.3rem 0; }
+    .info-label { color: var(--mud); font-weight: 500; }
+    @media (max-width: 768px) { .order-layout { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"></header>
+  <div class="page-header">
+    <div class="container">
+      <p class="breadcrumb"><a href="/orders.html">My Orders</a> › Order Detail</p>
+      <h1 id="page-title">Order Detail</h1>
+    </div>
+  </div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div id="order-content">
+          <div class="skeleton" style="height:400px"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/order-detail.js"></script>
+</body>
+</html>

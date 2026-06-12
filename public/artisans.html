@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet the Artisans — KalaSetu</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <style>
+    .artisan-card {
+      background: white;
+      border: 2px solid var(--mud);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .artisan-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .artisan-card-banner {
+      height: 120px;
+      background: var(--indigo);
+      position: relative;
+      overflow: hidden;
+    }
+    .artisan-card-banner img { width: 100%; height: 100%; object-fit: cover; }
+    .artisan-card-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 3px solid white;
+      background: var(--bone-dark);
+      overflow: hidden;
+      position: absolute;
+      bottom: -36px;
+      left: 1.25rem;
+    }
+    .artisan-card-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .artisan-card-body { padding: 2.75rem 1.25rem 1.25rem; flex: 1; }
+    .artisan-card-name { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 0.25rem; }
+    .artisan-card-meta { font-size: 0.8rem; color: var(--mud); margin-bottom: 0.75rem; }
+    .artisan-card-tradition { font-size: 0.8rem; font-weight: 700; color: var(--indigo); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+    .artisan-card-story { font-size: 0.875rem; color: var(--ink-light); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .artisan-card-footer { padding: 0.75rem 1.25rem; border-top: 1px solid var(--bone-dark); }
+    .artisans-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .filter-bar { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .filter-bar input, .filter-bar select { padding: 0.5rem 0.75rem; border: 1.5px solid #c4b99a; border-radius: var(--radius); font-family: 'Karla', sans-serif; font-size: 0.9rem; background: white; }
+    .filter-bar input:focus, .filter-bar select:focus { outline: none; border-color: var(--bronze); }
+    .results-info { font-size: 0.85rem; color: var(--mud); margin-left: auto; }
+  </style>
+</head>
+<body>
+  <header class="site-header"></header>
+  <div class="page-header">
+    <div class="container">
+      <p class="breadcrumb"><a href="/">Home</a> › Artisans</p>
+      <h1>Meet the Artisans</h1>
+      <p style="opacity:0.8;margin-top:0.5rem">The hands and hearts behind every piece</p>
+    </div>
+  </div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="filter-bar">
+          <input type="text" id="search-artisans" placeholder="Search by name or tribe…" style="flex:1;min-width:200px">
+          <select id="filter-region">
+            <option value="">All Regions</option>
+          </select>
+          <span class="results-info" id="results-info"></span>
+        </div>
+        <div class="artisans-grid" id="artisans-grid">
+          <div class="skeleton" style="height:280px"></div>
+          <div class="skeleton" style="height:280px"></div>
+          <div class="skeleton" style="height:280px"></div>
+          <div class="skeleton" style="height:280px"></div>
+          <div class="skeleton" style="height:280px"></div>
+          <div class="skeleton" style="height:280px"></div>
+        </div>
+        <div id="pagination"></div>
+      </div>
+    </section>
+  </main>
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/artisans.js"></script>
+</body>
+</html>

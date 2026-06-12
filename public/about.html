@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About KalaSetu — Tribal Handicrafts Marketplace</title>
+  <link rel="stylesheet" href="/css/shared.css">
+  <style>
+    .about-hero {
+      background: var(--indigo);
+      color: var(--bone);
+      padding: 4rem 0 3rem;
+      text-align: center;
+    }
+    .about-hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .about-hero p { max-width: 640px; margin: 0 auto; opacity: 0.85; font-size: 1.05rem; line-height: 1.8; }
+    .mission-section { background: white; padding: 4rem 0; }
+    .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .mission-text h2 { margin-bottom: 1rem; }
+    .mission-text p { color: var(--ink-light); line-height: 1.8; margin-bottom: 1rem; }
+    .mission-visual {
+      background: linear-gradient(135deg, var(--indigo) 0%, var(--mud) 100%);
+      border-radius: var(--radius);
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+    .values-section { padding: 4rem 0; }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .value-card { background: white; border: 2px solid var(--bone-dark); border-radius: var(--radius); padding: 1.5rem; }
+    .value-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .value-card h3 { font-family: 'Fraunces', serif; margin-bottom: 0.5rem; font-size: 1.05rem; }
+    .value-card p { font-size: 0.875rem; color: var(--ink-light); line-height: 1.7; }
+    .verification-section { background: var(--indigo); color: var(--bone); padding: 4rem 0; }
+    .verification-section h2 { text-align: center; margin-bottom: 0.75rem; }
+    .verification-section .sub { text-align: center; opacity: 0.8; max-width: 560px; margin: 0 auto 2.5rem; font-size: 0.95rem; }
+    .verify-steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
+    .verify-step-card { background: rgba(255,255,255,0.08); border-radius: var(--radius); padding: 1.5rem; }
+    .verify-step-card .step-num { font-family: 'IBM Plex Mono', monospace; font-size: 1.5rem; color: var(--bronze); font-weight: 700; margin-bottom: 0.5rem; }
+    .verify-step-card h4 { margin-bottom: 0.5rem; color: var(--bone); }
+    .verify-step-card p { font-size: 0.85rem; opacity: 0.8; line-height: 1.6; }
+    .communities-section { padding: 4rem 0; }
+    .communities-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+    .community-chip { background: white; border: 2px solid var(--mud); border-radius: var(--radius); padding: 1rem; text-align: center; }
+    .community-chip .craft { font-family: 'Fraunces', serif; font-size: 1.05rem; margin-bottom: 0.25rem; }
+    .community-chip .region { font-size: 0.8rem; color: var(--mud); }
+    .team-section { background: white; padding: 4rem 0; }
+    .cta-section { padding: 4rem 0; text-align: center; }
+    .cta-section h2 { margin-bottom: 1rem; }
+    .cta-section p { color: var(--mud); margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    @media (max-width: 768px) { .mission-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"></header>
+
+  <section class="about-hero">
+    <div class="container">
+      <p style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.1em;opacity:0.7;margin-bottom:0.75rem">Our Story</p>
+      <h1>A Bridge Between Ancient Craft<br><em>and the Modern World</em></h1>
+      <p>KalaSetu — "Kala" (art) + "Setu" (bridge) — exists to ensure that the extraordinary living traditions of India's tribal artisans are preserved, fairly compensated, and celebrated globally.</p>
+    </div>
+  </section>
+
+  <div class="warli-frieze" aria-hidden="true"></div>
+
+  <section class="mission-section">
+    <div class="container">
+      <div class="mission-grid">
+        <div class="mission-text">
+          <h2>Our Mission</h2>
+          <p>India's tribal communities carry knowledge systems thousands of years old. Dhokra metal casting, Warli painting, Gond art, Lambani embroidery — these are not merely handicrafts. They are living philosophies, oral histories embedded in form and colour.</p>
+          <p>Yet the artisans who carry these traditions are often underpaid, exploited by middlemen, and invisible to the world that buys their work. KalaSetu changes this by connecting artisans directly with conscious buyers — with full transparency, fair pricing, and cultural context.</p>
+          <p>Every purchase on KalaSetu flows directly to the artisan's community. Every product comes with the story of its tradition, verified by our network of cultural consultants.</p>
+        </div>
+        <div class="mission-visual">🏺</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="warli-frieze" aria-hidden="true"></div>
+
+  <section class="values-section">
+    <div class="container">
+      <h2 style="text-align:center">What We Stand For</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🔍</div>
+          <h3>Cultural Authenticity</h3>
+          <p>Every product on KalaSetu is reviewed by trained cultural consultants — craft historians, ethnographers, and community elders — before it receives our "Authentic" badge.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">⚖️</div>
+          <h3>Fair Trade Principles</h3>
+          <p>Artisans set their own prices. We take a transparent platform fee. No middlemen. No undercutting. The artisan you buy from receives the majority of what you pay.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">📖</div>
+          <h3>Living Knowledge</h3>
+          <p>Craft is knowledge. We document each tradition — technique, materials, cultural context — so buyers don't just own an object; they hold a piece of living history.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🌱</div>
+          <h3>Community First</h3>
+          <p>We invest a portion of our platform fees back into artisan communities through skill development programs, tool grants, and digital literacy initiatives.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🌍</div>
+          <h3>Global Reach</h3>
+          <p>We ship worldwide and support bulk B2B orders, bringing tribal craftsmanship to interior designers, galleries, and ethical lifestyle brands across the globe.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🔒</div>
+          <h3>Transparency</h3>
+          <p>Every artisan has a verified heritage page. Every product lists its technique and materials. We believe buyers deserve to know the full story of what they purchase.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="warli-frieze" aria-hidden="true"></div>
+
+  <section class="verification-section">
+    <div class="container">
+      <h2>How Authenticity Verification Works</h2>
+      <p class="sub">Our multi-step process ensures that every "Authentic" badge represents genuine craftsmanship rooted in a living tradition.</p>
+      <div class="verify-steps">
+        <div class="verify-step-card">
+          <p class="step-num">01</p>
+          <h4>Artisan Submits</h4>
+          <p>The artisan creates a detailed listing: high-resolution images, craft technique description, materials used, and the cultural tradition behind the piece.</p>
+        </div>
+        <div class="verify-step-card">
+          <p class="step-num">02</p>
+          <h4>Queue Review</h4>
+          <p>The listing enters our consultant review queue. Assigned consultants are matched based on their area of expertise — e.g., a Gond art specialist reviews Gond submissions.</p>
+        </div>
+        <div class="verify-step-card">
+          <p class="step-num">03</p>
+          <h4>Expert Assessment</h4>
+          <p>The consultant evaluates the technique, materials, and cultural claims. They may request additional information or images from the artisan.</p>
+        </div>
+        <div class="verify-step-card">
+          <p class="step-num">04</p>
+          <h4>Decision & Notes</h4>
+          <p>Approved listings receive the "Authentic" badge along with cultural notes written by the consultant explaining the tradition. Rejected listings receive detailed feedback.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="warli-frieze" aria-hidden="true"></div>
+
+  <section class="communities-section">
+    <div class="container">
+      <h2>Artisan Communities We Work With</h2>
+      <p style="color:var(--mud);margin-top:0.5rem">Representing over 15 tribal craft traditions from across India</p>
+      <div class="communities-grid">
+        <div class="community-chip"><p class="craft">Dhokra</p><p class="region">Chhattisgarh, West Bengal, Odisha</p></div>
+        <div class="community-chip"><p class="craft">Warli</p><p class="region">Maharashtra</p></div>
+        <div class="community-chip"><p class="craft">Gond</p><p class="region">Madhya Pradesh, Chhattisgarh</p></div>
+        <div class="community-chip"><p class="craft">Lambani</p><p class="region">Karnataka, Andhra Pradesh</p></div>
+        <div class="community-chip"><p class="craft">Dokra</p><p class="region">Jharkhand, West Bengal</p></div>
+        <div class="community-chip"><p class="craft">Pattachitra</p><p class="region">Odisha</p></div>
+        <div class="community-chip"><p class="craft">Toda Embroidery</p><p class="region">Tamil Nadu (Nilgiris)</p></div>
+        <div class="community-chip"><p class="craft">Sohrai</p><p class="region">Jharkhand</p></div>
+        <div class="community-chip"><p class="craft">Madhubani</p><p class="region">Bihar</p></div>
+        <div class="community-chip"><p class="craft">Bidri</p><p class="region">Karnataka</p></div>
+        <div class="community-chip"><p class="craft">Kondapalli</p><p class="region">Andhra Pradesh</p></div>
+        <div class="community-chip"><p class="craft">Bamboo Craft</p><p class="region">Northeast India</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="warli-frieze" aria-hidden="true"></div>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Join the KalaSetu Community</h2>
+      <p>Whether you're a buyer who values authenticity, an artisan seeking fair trade, or a business looking for ethical sourcing — there's a place for you here.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="/shop.html" class="btn btn-primary btn-lg">Shop Authentic Crafts</a>
+        <a href="/artisans.html" class="btn btn-secondary btn-lg">Meet the Artisans</a>
+        <a href="/register.html" class="btn btn-secondary btn-lg">Create an Account</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="warli-frieze" aria-hidden="true"></div>
+  <footer class="site-footer"></footer>
+  <script type="module" src="/js/pages/home.js"></script>
+</body>
+</html>
